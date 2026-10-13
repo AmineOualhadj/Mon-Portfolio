@@ -1,0 +1,815 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="theme-color" content="#0a1020">
+  <meta name="description"
+        content="Portfolio de OUALHADJ Mohammed Amine, élève ingénieur à l'ECC, intéressé par la cybersécurité et la programmation Python.">
+
+  <title>OUALHADJ Mohammed Amine | Portfolio</title>
+
+  <style>
+    :root {
+      --bg: #080d19;
+      --surface: #101a2c;
+      --surface-light: #15233a;
+      --text: #edf3ff;
+      --muted: #a5b4cc;
+      --accent: #69e0c0;
+      --blue: #83aaff;
+      --border: #26364e;
+      --max-width: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background:
+        radial-gradient(ellipse at 85% 5%, #16314a 0, transparent 35%),
+        var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, sans-serif;
+      line-height: 1.75;
+      overflow-wrap: anywhere;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button:focus-visible, a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    /* Navigation */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8, 13, 25, 0.92);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .nav-right, .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .lang-btn {
+      cursor: pointer;
+      color: var(--accent);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font: inherit;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    /* Hero */
+
+    .hero {
+      min-height: 590px;
+      display: flex;
+      align-items: center;
+      padding-block: 90px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1.12;
+      letter-spacing: -2px;
+      margin: 24px 0;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .hero-description {
+      max-width: 670px;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 11px 18px;
+      border-radius: 9px;
+      border: 1px solid var(--border);
+      font-weight: 700;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      text-decoration: none;
+      border-color: var(--accent);
+    }
+
+    .button-primary {
+      background: var(--accent);
+      color: #07151a;
+      border-color: var(--accent);
+    }
+
+    .button-secondary {
+      color: var(--text);
+      background: var(--surface);
+    }
+
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 28px;
+      padding: 9px 13px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* Sections */
+
+    section.content-section {
+      padding-block: 70px;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      color: var(--accent);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.25;
+      margin: 12px 0 20px;
+      letter-spacing: -0.7px;
+    }
+
+    .section-intro {
+      max-width: 720px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .card {
+      padding: 26px;
+      border: 1px solid var(--border);
+      background: linear-gradient(145deg, var(--surface), #0d1525);
+      border-radius: 15px;
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .info-line {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-line:last-child {
+      border-bottom: 0;
+    }
+
+    .info-label {
+      display: block;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .info-value {
+      font-weight: 650;
+    }
+
+    /* Skills */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 23px;
+    }
+
+    .skill-icon {
+      color: var(--accent);
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 4px 11px;
+      margin-top: 12px;
+      border-radius: 20px;
+      background: #12312f;
+      border: 1px solid #22544d;
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+
+    /* Projects */
+
+    .project-card {
+      max-width: 720px;
+      padding: 28px;
+      border: 1px dashed #3b4c66;
+      border-radius: 15px;
+      background: rgba(16, 26, 44, 0.7);
+    }
+
+    .project-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+    }
+
+    /* Internship */
+
+    .internship {
+      padding: 30px;
+      border-radius: 15px;
+      background: linear-gradient(110deg, #112b32, #101a2c 75%);
+      border: 1px solid #28514e;
+    }
+
+    .internship p {
+      color: var(--muted);
+      max-width: 730px;
+    }
+
+    /* Contact */
+
+    .contact-box {
+      padding: 30px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+    }
+
+    footer {
+      padding: 28px 0;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--accent);
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding-block: 15px;
+      }
+
+      .nav-right {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .nav-links {
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-block: 75px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section.content-section {
+        padding-block: 52px;
+      }
+
+      h1 {
+        letter-spacing: -1px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home">AM<span>.</span></a>
+
+      <div class="nav-right">
+        <nav class="nav-links" aria-label="Navigation principale">
+          <a href="#about" data-fr="Profil" data-en="Profile">Profil</a>
+          <a href="#skills" data-fr="Compétences" data-en="Skills">Compétences</a>
+          <a href="#projects" data-fr="Projets" data-en="Projects">Projets</a>
+          <a href="#contact" data-fr="Contact" data-en="Contact">Contact</a>
+        </nav>
+        <button class="lang-btn" id="language-toggle"
+                type="button" aria-label="Switch language">
+          EN
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="eyebrow"
+             data-fr="Étudiant ingénieur · ECC"
+             data-en="Engineering Student · ECC">
+          Étudiant ingénieur · ECC
+        </div>
+
+        <h1>
+          OUALHADJ<br>
+          Mohammed Amine<span>.</span>
+        </h1>
+
+        <p class="hero-description"
+           data-fr="Élève en première année du cycle ingénieur à l’ECC, je m’intéresse à la cybersécurité et à la programmation. Je souhaite développer mes compétences à travers un stage d’été et contribuer à des projets techniques concrets."
+           data-en="First-year engineering student at ECC, interested in cybersecurity and programming. I am looking for a summer internship to develop my skills and contribute to practical technical projects.">
+          Élève en première année du cycle ingénieur à l’ECC, je
+          m’intéresse à la cybersécurité et à la programmation.
+          Je souhaite développer mes compétences à travers un stage
+          d’été et contribuer à des projets techniques concrets.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="button button-primary" href="#contact"
+             data-fr="Me contacter ↗"
+             data-en="Contact me ↗">
+            Me contacter ↗
+          </a>
+          <a class="button button-secondary" href="#projects"
+             data-fr="Voir mes projets"
+             data-en="Explore my projects">
+            Voir mes projets
+          </a>
+        </div>
+
+        <div class="availability">
+          <span class="dot"></span>
+          <span data-fr="Recherche un stage d’été"
+                data-en="Seeking a summer internship">
+            Recherche un stage d’été
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="content-section" id="about">
+      <div class="section-label"
+           data-fr="01 — À propos"
+           data-en="01 — About">
+        01 — À propos
+      </div>
+
+      <h2 data-fr="Mon parcours" data-en="My background">
+        Mon parcours
+      </h2>
+
+      <div class="about-grid">
+        <div class="card">
+          <h3 data-fr="Une formation d’ingénieur"
+              data-en="Engineering education">
+            Une formation d’ingénieur
+          </h3>
+          <p
+            data-fr="Actuellement en première année du cycle ingénieur à l’ECC, je poursuis ma formation scientifique et technique. Je souhaite approfondir mes connaissances en informatique et découvrir les pratiques professionnelles de la cybersécurité."
+            data-en="I am currently in the first year of the engineering program at ECC, pursuing scientific and technical studies. I aim to deepen my knowledge of computing and learn more about professional cybersecurity practices.">
+            Actuellement en première année du cycle ingénieur à l’ECC,
+            je poursuis ma formation scientifique et technique.
+            Je souhaite approfondir mes connaissances en informatique
+            et découvrir les pratiques professionnelles de la cybersécurité.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="info-line">
+            <span class="info-label"
+                  data-fr="Établissement"
+                  data-en="Institution">Établissement</span>
+            <span class="info-value">ECC</span>
+          </div>
+          <div class="info-line">
+            <span class="info-label"
+                  data-fr="Formation"
+                  data-en="Program">Formation</span>
+            <span class="info-value"
+                  data-fr="Cycle ingénieur — 1re année"
+                  data-en="Engineering program — Year 1">
+              Cycle ingénieur — 1re année
+            </span>
+          </div>
+          <div class="info-line">
+            <span class="info-label"
+                  data-fr="Domaine d’intérêt"
+                  data-en="Area of interest">Domaine d’intérêt</span>
+            <span class="info-value">Cybersécurité</span>
+          </div>
+          <div class="info-line">
+            <span class="info-label"
+                  data-fr="Langues du portfolio"
+                  data-en="Portfolio languages">Langues du portfolio</span>
+            <span class="info-value">Français · English</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="content-section" id="skills">
+      <div class="section-label"
+           data-fr="02 — Compétences"
+           data-en="02 — Skills">
+        02 — Compétences
+      </div>
+
+      <h2 data-fr="Mes compétences techniques"
+          data-en="Technical skills">
+        Mes compétences techniques
+      </h2>
+
+      <p class="section-intro"
+         data-fr="Voici la compétence technique que je peux actuellement présenter. Cette section pourra évoluer avec mes futurs apprentissages et réalisations."
+         data-en="This is the technical skill I can currently present. This section can grow as I gain new knowledge and complete further projects.">
+        Voici la compétence technique que je peux actuellement présenter.
+        Cette section pourra évoluer avec mes futurs apprentissages
+        et réalisations.
+      </p>
+
+      <div class="skills-grid">
+        <article class="skill-card">
+          <div class="skill-icon" aria-hidden="true">&lt;/&gt;</div>
+          <h3>Python</h3>
+          <p data-fr="Programmation en Python."
+             data-en="Python programming.">
+            Programmation en Python.
+          </p>
+          <span class="tag"
+                data-fr="Programmation"
+                data-en="Programming">Programmation</span>
+        </article>
+
+        <article class="skill-card">
+          <div class="skill-icon" aria-hidden="true">⌁</div>
+          <h3 data-fr="Cybersécurité"
+              data-en="Cybersecurity">Cybersécurité</h3>
+          <p data-fr="Domaine d’intérêt et objectif de développement professionnel."
+             data-en="Area of interest and professional development goal.">
+            Domaine d’intérêt et objectif de développement professionnel.
+          </p>
+          <span class="tag"
+                data-fr="En apprentissage"
+                data-en="Learning goal">En apprentissage</span>
+        </article>
+
+        <article class="skill-card">
+          <div class="skill-icon" aria-hidden="true">◎</div>
+          <h3 data-fr="Sciences de l’ingénieur"
+              data-en="Engineering sciences">Sciences de l’ingénieur</h3>
+          <p data-fr="Formation scientifique et technique dans le cadre du cycle ingénieur."
+             data-en="Scientific and technical studies as part of the engineering program.">
+            Formation scientifique et technique dans le cadre du cycle ingénieur.
+          </p>
+          <span class="tag"
+                data-fr="Formation"
+                data-en="Education">Formation</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="content-section" id="projects">
+      <div class="section-label"
+           data-fr="03 — Projets"
+           data-en="03 — Projects">
+        03 — Projets
+      </div>
+
+      <h2 data-fr="Mes réalisations"
+          data-en="Selected projects">
+        Mes réalisations
+      </h2>
+
+      <p class="section-intro"
+         data-fr="Cette section sera enrichie avec mes projets réels, accompagnés d’une description, des technologies utilisées et de liens vers le code ou les résultats."
+         data-en="This section will be updated with real projects, including descriptions, technologies used, and links to source code or results.">
+        Cette section sera enrichie avec mes projets réels, accompagnés
+        d’une description, des technologies utilisées et de liens
+        vers le code ou les résultats.
+      </p>
+
+      <div class="project-card">
+        <h3 data-fr="Projets à venir"
+            data-en="Projects coming soon">
+          Projets à venir
+        </h3>
+        <p
+          data-fr="Je prépare cette section pour présenter mes travaux personnels et académiques. Les projets seront ajoutés une fois documentés et prêts à être partagés."
+          data-en="I am preparing this section to showcase my personal and academic work. Projects will be added once they are documented and ready to share.">
+          Je prépare cette section pour présenter mes travaux personnels
+          et académiques. Les projets seront ajoutés une fois documentés
+          et prêts à être partagés.
+        </p>
+        <span class="tag"
+              data-fr="En construction"
+              data-en="In progress">En construction</span>
+      </div>
+    </section>
+
+    <!-- INTERNSHIP -->
+    <section class="content-section" id="internship">
+      <div class="section-label"
+           data-fr="04 — Objectif professionnel"
+           data-en="04 — Career objective">
+        04 — Objectif professionnel
+      </div>
+
+      <div class="internship">
+        <h2 data-fr="À la recherche d’un stage d’été"
+            data-en="Seeking a summer internship">
+          À la recherche d’un stage d’été
+        </h2>
+        <p
+          data-fr="Je souhaite découvrir un environnement professionnel, mettre en pratique mes connaissances en programmation et développer progressivement mes compétences dans le domaine de la cybersécurité."
+          data-en="I am looking to experience a professional environment, apply my programming knowledge, and progressively develop my skills in cybersecurity.">
+          Je souhaite découvrir un environnement professionnel, mettre
+          en pratique mes connaissances en programmation et développer
+          progressivement mes compétences dans le domaine de la cybersécurité.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="content-section" id="contact">
+      <div class="section-label"
+           data-fr="05 — Contact"
+           data-en="05 — Contact">
+        05 — Contact
+      </div>
+
+      <h2 data-fr="Entrons en contact."
+          data-en="Let's get in touch.">
+        Entrons en contact.
+      </h2>
+
+      <div class="contact-box">
+        <p class="section-intro"
+           data-fr="Vous souhaitez discuter d’une opportunité de stage ou de mon parcours ? Vous pouvez me contacter par e-mail."
+           data-en="Would you like to discuss an internship opportunity or my background? You can contact me by email.">
+          Vous souhaitez discuter d’une opportunité de stage ou de mon
+          parcours ? Vous pouvez me contacter par e-mail.
+        </p>
+
+        <!--
+          À PERSONNALISER :
+          Remplace TON-EMAIL par ta véritable adresse e-mail.
+          Exemple de format : amine@example.com
+        -->
+        <a class="button button-primary"
+           href="mailto:oualhadjamine@gmail.com"
+           id="email-link"
+           data-fr="Envoyer un e-mail ↗"
+           data-en="Send an email ↗">
+          Envoyer un e-mail ↗
+        </a>
+
+        <p id="email-note"
+           class="muted"
+           style="margin-top:12px;font-size:.85rem"
+           data-fr="Pense à ajouter ton adresse e-mail avant la publication."
+           data-en="Remember to add your email address before publishing.">
+          Pense à ajouter ton adresse e-mail avant la publication.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        © <span id="year">2026</span> — OUALHADJ Mohammed Amine
+      </p>
+      <p style="margin-top:5px">
+        <span data-fr="Portfolio personnel"
+              data-en="Personal portfolio">Portfolio personnel</span>
+        ·
+        <a href="#home"
+           data-fr="Retour en haut ↑"
+           data-en="Back to top ↑">Retour en haut ↑</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Bascule entre le français et l'anglais.
+    const languageButton = document.getElementById("language-toggle");
+
+    function setLanguage(language) {
+      document.documentElement.lang = language;
+
+      document.querySelectorAll("[data-fr][data-en]").forEach(element => {
+        element.textContent = element.getAttribute(
+          language === "fr" ? "data-fr" : "data-en"
+        );
+      });
+
+      languageButton.textContent = language === "fr" ? "EN" : "FR";
+      languageButton.setAttribute(
+        "aria-label",
+        language === "fr" ? "Switch to English" : "Passer en français"
+      );
+
+      try {
+        localStorage.setItem("portfolio-language", language);
+      } catch (error) {
+        // Le site fonctionne aussi si le stockage est indisponible.
+      }
+    }
+
+    languageButton.addEventListener("click", () => {
+      const currentLanguage = document.documentElement.lang;
+      setLanguage(currentLanguage === "fr" ? "en" : "fr");
+    });
+
+    // Année automatiquement actualisée.
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Adresse e-mail : le bouton reste masqué tant qu'elle n'est pas renseignée.
+    const emailLink = document.getElementById("email-link");
+    const emailNote = document.getElementById("email-note");
+
+    const email = "oualhadjamine@gmail.com";
+
+    if (
+      email &&
+      email !== "TON-EMAIL" &&
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    ) {
+      emailLink.href = "mailto:" + email;
+      emailNote.hidden = true;
+    } else {
+      emailLink.hidden = true;
+    }
+
+    // Français par défaut ; restauration de la préférence si possible.
+    let savedLanguage = "fr";
+
+    try {
+      const storedLanguage = localStorage.getItem("portfolio-language");
+      if (storedLanguage === "fr" || storedLanguage === "en") {
+        savedLanguage = storedLanguage;
+      }
+    } catch (error) {
+      // Français par défaut.
+    }
+
+    setLanguage(savedLanguage);
+  </script>
+</body>
+</html>
